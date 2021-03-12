@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
 	email: String,
 	age: Number,
 	gender: String,
-	googoleId: String,
+	googleId: String,
 });
 
 module.exports = mongoose.model('User', userSchema);

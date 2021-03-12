@@ -12,8 +12,11 @@
 </head>
 
 <body>
-<button class='button'><a href="/auth/google">Login</a></button>
-
+<% if (user) { %>
+    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+    <% } else { %>
+        <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
+        <% } %>
 
     <h1>
         Records

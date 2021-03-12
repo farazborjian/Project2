@@ -18,7 +18,7 @@ passport.use(
 
 				if (user) {
 					// cb(error, documentFromMongoose)
-					return cb(null, student);
+					return cb(null, user);
 				} else {
 					// if we didn't find the (user) go ahead create them
 					const newUser = new User({
