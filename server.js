@@ -2,13 +2,18 @@ var express = require('express');
 var path = require('path');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var createError = require('http-errors');
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/Employee-tracker-app');
+
 // session middleware
 var session = require('express-session');
 var passport = require('passport');
 var methodOverride = require('method-override');
+
 var indexRoutes = require('./routes/index');
-
-
+var usersRouter = require('./routes/users');
 
 // load the env vars
 require('dotenv').config();
@@ -45,16 +50,19 @@ app.use(passport.session());
 
 // Add this middleware BELOW passport middleware
 app.use(function (req, res, next) {
-	res.locals.user = req.user; // assinging a property to res.locals, makes that said property (user) availiable in every
+  res.locals.user = req.user;
+
+  req.db = db;
+
+  // assinging a property to res.locals, makes that said property (user) availiable in every
 	// single ejs view
 	next();
 });
 
 // mount all routes with appropriate base paths
 
-
 app.use('/', indexRoutes);
-
+app.use('/users', usersRouter);
 
 // invalid request, send 404 page
 app.use(function (req, res) {

@@ -1,0 +1,16 @@
+[{
+   "username": "test1",
+   "email": "test1@test.com",
+   "fullname": "Bob Smith",
+   "age": 27,
+   "location": "San Francisco",
+   "gender": "Male"
+},
+{
+   "username": "test2",
+   "email": "test2@test.com",
+   "fullname": "Farazooo",
+   "age": 27,
+   "location": "San Francisco",
+   "gender": "Male"
+}]
