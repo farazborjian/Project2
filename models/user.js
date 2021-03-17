@@ -11,4 +11,4 @@ const userSchema = new mongoose.Schema({
 	gender: String,
 	googleId: String,
 });
-
+module.exports = mongoose.model('User', userSchema);
